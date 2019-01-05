@@ -42,6 +42,16 @@ class PublicHome extends Component {
                            <div className="flex w-full py-6">
                             <img src="./images/Logo_main.PNG" className="img-fluid logo-public-page" alt="Logo"/>
                            </div>
+
+                            <div className="flex w-full mt-5 text-center" style={{marginTop: '30px'}}>
+                                <span className="text-2xl">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                                </span>
+                            </div>
+
+
+
+
                         </div>
                         <div className="col-md-7 text-grey-dark">
                             <div className="flex justify-center bg- p-5 m-t-4">
@@ -64,7 +74,7 @@ class PublicHome extends Component {
 
                                 <div className="btn btn-primary btn-lg w-full mt-3">Sign in</div>
 
-
+                                <hr style={{paddingBottom: '30px'}}></hr>
                                 <h4 className="my-5 text-grey-dark text-center" >or sign in with</h4>
 
 
