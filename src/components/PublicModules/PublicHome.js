@@ -35,7 +35,7 @@ class PublicHome extends Component {
     render(){
         return(
            <div className="flex img-page w-full h-screen">
-                
+
                 <div className="container p-5 signin-box">
                     <div className="box bg-white text-grey-dark shadow-lg rounded">
                         <div className="col-md-5 text-grey-dark border-r-1 h-full bg-primary" >
@@ -61,7 +61,6 @@ class PublicHome extends Component {
                                 </div>
                             </div>
                             
-
 
                         </div>
                         <div className="col-md-7 text-grey-dark">
@@ -97,8 +96,6 @@ class PublicHome extends Component {
                                 </div>
                                
 
-                            
-
                             </div>
                            
                         </div>
@@ -112,3 +109,20 @@ class PublicHome extends Component {
 }
 
 export default PublicHome;
+
+
+/** ---------------------------------------------------------------------------------------+
+Name : MainSigninForm
+Author by : Napihups
+Date of revision : 05-01-2019
+Desc : This Components forms of the main signin. 
++-----------------------------------------------------------------------------------------**/
+class MainSigninForm extends Component {
+
+    render(){
+        return(
+            <h1>Main Signin form</h1>
+        );
+    }
+
+}
