@@ -1,0 +1,97 @@
+
+// Core
+
+// @import 'variables';
+@import '../scss_v1/variables';
+// @import '../libs/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../scss_v1/libs/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../scss_v1/libs/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+// @import '../custom/scss/variables';
+// @import '../scss_v1/custom/variables';
+
+// @import '../libs/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import '../scss_v1/mixins';
+// @import 'grid';
+@import '../scss_v1/grid';
+@import '../scss_v1/utilities';
+
+@import '../scss_v1/typography';
+@import '../scss_v1/base';
+@import '../scss_v1/tables';
+@import '../scss_v1/forms';
+@import '../scss_v1/buttons';
+@import '../scss_v1/custom/color-variant';
+// Elements
+
+@import './libs/animatewithsass/animate.scss';
+@import 'dropdowns';
+@import 'button-groups';
+@import 'navs';
+@import 'breadcrumbs';
+@import 'pagination';
+@import 'labels';
+@import 'thumbnails';
+@import 'alerts';
+@import 'progress-bars';
+@import 'list-group';
+@import 'panels';
+@import 'wells';
+@import 'modals';
+@import 'tooltip';
+@import 'popovers';
+@import 'button-label';
+@import 'accordions';
+@import 'notes';
+@import 'switchers';
+@import 'custom-forms';
+@import 'px-sidebar';
+@import 'navbar';
+@import 'px-navbar';
+@import 'px-nav';
+@import 'px-footer';
+@import 'boxes';
+@import 'px-wizard';
+
+// Plugins
+
+@import 'plugins/perfect-scrollbar';
+@import 'plugins/px-tab-resize';
+@import 'plugins/px-expanding-input';
+@import 'plugins/px-validate';
+@import 'plugins/px-responsive-bg';
+@import 'plugins/select2';
+@import 'plugins/ui-select';
+@import 'plugins/bootstrap-datepicker';
+@import 'plugins/bootstrap-timepicker';
+@import 'plugins/jquery-minicolors';
+@import 'plugins/datatables';
+@import 'plugins/growl';
+@import 'plugins/dropzone';
+@import 'plugins/summernote';
+@import 'plugins/bootstrap-markdown';
+@import 'plugins/ion.rangeSlider';
+@import 'plugins/jquery-sortable';
+@import 'plugins/bootstrap-touchspin';
+@import 'plugins/quick-select';
+@import 'plugins/editable-table';
+@import 'plugins/toastr';
+@import 'plugins/bootstrap-daterangepicker';
+@import 'plugins/bootstrap-tagsinput';
+@import 'plugins/ng-tags-input';
+@import 'plugins/sortable';
+@import 'plugins/bootstrap-slider';
+@import 'plugins/nouislider';
+@import 'plugins/owl.carousel';
+
+// Charts
+
+@import 'plugins/morris.js';
+@import 'plugins/flot';
+@import 'plugins/chartist';
+@import 'plugins/c3';
+@import 'plugins/easy-pie-chart';
+
+// @import './bootstrap.scss';
+//Custom theme SCSS
+
+@import './themes/custom/efah-style.scss';

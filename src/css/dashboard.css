@@ -1,0 +1,50 @@
+/* --blue: #007bff;
+--indigo: #674eec;
+--purple: #8445f7;
+--pink: #ff4169;
+--red: #c4183c;
+--orange: #fb7906;
+--yellow: #ffb400;
+--green: #17c671;
+--teal: #1adba2;
+--cyan: #00b8d8;
+--white: #fff;
+--gray: #868e96;
+--gray-dark: #343a40;
+--primary: #591fc5;
+--secondary: #5A6169;
+--success: #17c671;
+--info: #00b8d8;
+--warning: #ffb400;
+--danger: #c4183c;
+--light: #e9ecef;
+--dark: #212529; */
+
+.me {
+    display: block;
+    /* margin: 2em auto; */
+    /* margin-bottom: 3em; */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+  }
+
+
+ .module-active{
+    /* background: purple */
+    /* color: #591fc5; */
+    /* background: blue; */
+    border-bottom: 3px solid #591fc5 !important;
+    /* transition: 0.3s; */
+}
+
+.module-active .nav-link {
+    color:  #591fc5 !important;
+}
+
+
+
+
+

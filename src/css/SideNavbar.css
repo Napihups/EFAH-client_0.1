@@ -1,0 +1,132 @@
+.sidenav {
+    background: #fff;
+    position: relative;
+    width: 80px;
+    float: left;
+    text-align: center;
+    height: 100%;
+    transition: all 0.25s ease-in-out;
+    /*   border: 1px solid #cccccc; */
+    /*    border-left: 3px solid grey; */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+  
+  .sidenav:hover {
+    width: 200px;
+    /*   animation: sidebarHover;
+    animation-duration: 0.2s; */
+  }
+  
+  .sidenav:hover ul li {
+    text-align: left;
+    padding-left: 15px;
+  }
+  
+  .sidenav:hover ul li .item {
+    width: 200px;
+  }
+  
+  .sidenav:hover ul li .item .item-text {
+    opacity: 1;
+  }
+  
+  .sidenav .logo {
+    position: relative;
+    color: white;
+    border-radius: 0%;
+    width: 100%;
+    /* height: 92px; */
+    margin-top: 0px;
+    /* margin: 0px auto; */
+    padding: 10px;
+    transition: 0.1s ease-in-out;
+    /* background: pink;  */
+    line-height: 60px;
+  }
+
+  .sidenav .logo .aaa {
+    width: 40px;
+    /* height: 50px; */
+    margin-left: 5px;
+    /* margin: 0px auto; */
+  }
+
+   /* .sidenav:hover .logo {
+    text-align: left;
+    background: pink;
+    margin-left: 0px;
+    border-bottom: 2px solid rgb(226, 222, 222);
+    animation: line;
+  }  */
+
+  @keyframes line {
+    0% {
+      width: 0%;
+    }
+    100% {  
+      width: 100%;
+    }
+  }
+  
+  .sidenav ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .sidenav ul li {
+    border-left: 3px solid white;
+    height: 60px;
+    /*  padding: 0px 0 0px 0; */
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    /*   background: pink; */
+  }
+  
+  .sidenav ul li:hover {
+    border-left: 3px solid #591fc5;
+    background: ghostwhite;
+  }
+  
+  .sidenav ul li:hover i {
+    color: #591fc5 !important;
+  }
+  
+  .sidenav ul li:hover .item-text {
+    color: #591fc5 !important;
+  }
+  
+  .sidenav ul li .item {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: width 0.1s ease-in-out;
+    /*   background: blue; */
+    /*   border-left: 1px solid purple; */
+  }
+  
+  .sidenav ul li .item i {
+    float: left;
+    position: relative;
+    top: -3px;
+    /* color: grey; */
+    color: #591fc5;
+    font-size: 25px;
+    /*   margin-bottom: 10px; */
+    line-height: 65px;
+  }
+  
+  .sidenav ul li .item .item-text {
+    line-height: 60px;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    margin-left: 10px;
+    font-weight: 700;
+    text-align: center;
+    color: grey;
+    font-size: 15px;
+    /*   background: pink; */
+    /*   padding: 2px 30px; */
+  }

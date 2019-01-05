@@ -1,0 +1,145 @@
+// If you're creating a dark theme do not forget to import dark scheme variables
+
+// @import '../../../../scss/variables-dark';
+// @import '../../../../scss/variables';
+@import '../../libs/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../../libs/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import '../../mixins';
+@import '../../custom/variables';
+@import '../../custom/color-variant';
+
+
+// $theme-primary-color: #591ae0;
+// $theme-primary-hover-color: #4d14c7;
+// $theme-primary-color: #00796B;
+// $theme-primary-hover-color : #066e62;
+$theme-primary-color: #00897B;
+$theme-primary-hover-color : #067a6f;
+$theme-white : #fff;
+$sidebar-line: #cccbcf;
+$text-color: #8795a0;
+$border-color: #eeeeee;
+
+// Generate theme
+//
+
+@include pixel-theme(
+
+  // Basic
+  //
+
+  $primary-color:        $theme-primary-color,             // Primary color
+  $primary-text-color:   #fff,                             // Primary text color
+  $primary-border-color: darken($theme-primary-color, 6%), // Primary border color
+
+  $body-bg:              #e9ebee,            // Body background
+  $panel-border-color:   #e2e2e2,            // Border color of panel
+  $header-bg:            transparent,        // [Optional] [Default: transparent] Background of page header
+  $header-border-color:  rgba(0, 0, 0, .07), // [Optional] [Default: false] Border color of page header
+
+  // Px-Navbar element
+  //
+
+  $px-navbar: (
+    bg:                             $theme-primary-color,    // Navbar background
+    border-color:                   rgba(0, 0, 0, .09),      // Border color of navbar item on md, lg and xl screens
+    link-color:                     #fff,                    // Link color
+    link-hover-color:               rgba(255, 255, 255, .8), // Link color in hover state
+    link-hover-bg:                  rgba(0, 0, 0, .04),      // Link background in hover state
+    shadow:                         "none",                  // [Optional] [Default: "none"] Navbar shadow
+
+    // Navbar brand styling (take effect when .px-nav is expanded on lg and xl screens)
+    brand-bg:                       $theme-primary-color, // Brand background
+    brand-link-color:               #fff,                 // Brand link color
+    brand-link-hover-color:         #fff,                 // Brand link color in hover state
+
+    collapse-bg:                    $theme-primary-color,                  // [Optional] [Default: px-navbar[bg]] Background of navbar collapse on xs and sm screens; Background of dropdown menu on md, lg and xl screens
+    collapse-border-color:          $theme-primary-color,                  // Border color of navbar item on xs and sm screens; Border color of dropdown menu divider on md, lg and xl screens
+    collapse-dropdown-bg:           rgba(255, 255, 255, .06), // Background of dropdown menu on xs and sm screens
+    collapse-dropdown-border-color: $theme-primary-color,                  // Border color of dropdown menu item on xs and sm screens
+
+    form-control-bg:                rgba(255, 255, 255, .3), // Background of navbar form control
+    form-control-border-color:      transparent,             // Border color of navbar form control
+    form-control-color:             #fff,                    // Text color of navbar form control
+
+    scrollbar-color:                rgba(255, 255, 255, .5), // Scrollbar color
+    scrollbar-rail-color:           transparent,             // Scrollbar rail color
+
+    enable-transitions:             false // [Optional] [Default: true] Enable transitions
+  ),
+
+  // Px-Nav element
+  $px-nav: (
+    toggle-color:                #fff,    // Text color of toggler
+    toggle-bg:                    $theme-primary-color, // Background of toggler
+
+    // bg:                          #545d64,            // Nav background
+    bg:                           $theme-white,
+    // color:                       #aabcca,
+    color:                        $text-color,            // Text and link color
+    // link-hover-color:            #fff,               // Link color in hover state
+    link-hover-color:            $theme-primary-color,
+    // link-hover-bg:               rgba(0, 0, 0, .08), // Link background in hover state
+    link-hover-bg:               $theme-white,
+
+    // Dropdowns
+    dropdown-bg:                 #485056,              // Background of dropdown
+    dropdown-menu-title-color:   #fff,                 // Text color of floating dropdown title&nbsp;
+    dropdown-menu-title-bg:      $theme-primary-color, // Background of floating dropdown title
+
+    // Active
+    active-color:                $theme-primary-color,                 // Text color of active nav item
+    active-bg:                   #fff,              // Background of active nav item
+    active-icon-color:           #fff,                 // Icon color of active nav item
+    active-dropdown-icon-color:  $theme-primary-color, // [Optional] [Default: px-nav[active-icon-color]] Icon color of active nav dropdown
+
+    scrollbar-color:             rgba(255, 255, 255, .3), // Scrollbar color
+    scrollbar-rail-color:        transparent,             // Scrollbar rail color
+
+    toggle-border-color:        $theme-primary-color, // [Optional] [Default: false] Border color of toggler
+    border-color:                false,   // [Optional] [Default: false] Border color of nav
+    // item-border-color:          $border-color,
+    item-border-color:           false,
+    // item-border-color:           #4D565C, // [Optional] [Default: false] Border color of nav item
+    dropdown-item-border-color:  false, // [Optional] [Default: false] Border color of dropdown item
+    // box-border-color:            #445059, // [Optional] [Default: transparent] Border color of .px-nav-box
+    box-border-color:           white,
+
+    tooltip-bg:                  $theme-primary-color, // [Optional] [Default: px-nav[active-bg]] Background of tooltip
+    tooltip-color:               #fff,                 // [Optional] [Default: px-nav[active-color]] Text color of tooltip
+
+    dimmer-bg:                   rgba(#485056, .5), // [Optional] [Default: $px-nav-dimmer-bg] Background of dimmer
+
+    animate-items:               true // [Optional] [Default: false] Add transitions to nav items
+  ),
+
+  // Px-Footer element
+  //
+
+  $px-footer: (
+    color:            rgba(255, 255, 255, .5), // Text color
+    bg:               #5d676f,                 // Background of footer
+
+    link-color:       rgba(255, 255, 255, .6), // Link color
+    link-hover-color: #fff,                    // Link color in hover state
+
+    muted-color:      #939ea7, // [Optional] [Default: false] Text color of .text-muted element
+    border-color:     false,   // [Optional] [Default: false] Border color of footer
+    hr-color:         #6d7881  // [Optional] [Default: false] Border color of <hr> element
+  )
+);
+
+// Custom styles
+//
+
+// PxNavbar
+@if mixin-exists(px-nav-theme) {
+  @media (min-width: $screen-md-min) {
+    .px-navbar .dropdown-menu {
+      border: none;
+    }
+  }
+}
+
+// Pace.js
+.pace-progress { background: darken($theme-primary-color, 13%); }

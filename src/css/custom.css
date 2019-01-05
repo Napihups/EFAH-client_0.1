@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand|Raleway");
+
+:root {
+    --primary-color: #00897B;
+    --primary-color-hover: #067a6f;
+    --scrollbar-thumb: #00897B;
+    --dark-grey : #343c44;
+    --background-gray: #e9ebee;
+    --border-line : #d5dbe0;
+    --white : #fff;
+}
+
+/* sidebar border ----------------*/
+.left-nav-border{
+    border-right: 1px solid var(--border-line);
+}
+
+/*  sidebar profile info (style) ------ */
+.profile-box .avatar-box {
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    border-radius: 9999px;
+    float: left;
+}
+
+.profile-box .profile-info {
+    /* background: pink; */
+    float: left;
+    /* margin: 10px; */
+    /* padding: 10px; */
+    padding-left: 10px;
+    padding-top: 5px;
+    width: 140px;
+}
+
+.user-name{
+    overflow: hidden;
+    text-overflow: clip;
+}
+/* --------------------------------------*/
+
+
+
+/*  Classgroup panel -------------------*/
+.classgroup-panel {
+    /* background: green; */
+    margin-top: 30px;
+}
+/* -----------------------------------------*/
+
+
+/*  Icon controls for class box ----------------*/
+.icon-control{
+    font-size: 16px;
+}
+/* ---------------------------------------------*/
+
+
+/* Button padding-----------------------------*/
+.btn-padding{
+    padding-left: 50px;
+    padding-right: 50px;
+    /* border-radius: 10px !important; */
+}
+
+/* styling for scrollbar ----------------------------*/
+::-webkit-scrollbar {
+    /* display : none; */
+    width: 5px;
+    height: 7px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+/* Custom Dropdown box for px-navbar --------*/
+.custom-nav-dropdown{
+    width: 300px !important;
+    background: var(--white) !important;
+    border: 1px solid var(--border-line) !important;
+    /* background: green !important; */
+    /* margin-right: 30px !important; */
+}
+
+.scrollable-dropdown-box{
+    max-height: 300px;
+    overflow: auto; 
+}
+
+.custom-nav-dropdown li {
+    margin: 0px;
+    padding: 10px;
+}
+
+.custom-nav-dropdown li .box-cell:hover {
+    background: var(--primary-color) !important; 
+    border-radius: 2px;
+    cursor: pointer !important;
+    color: var(--white) !important;  
+}
+
+
+/* styling for user avatar -----------------------*/
+.user-avatar{
+    height: 40px;
+    width: 40px;
+}
+
+
+/* styling for user-msg-box (Dropdown navbar) ------------*/
+.user-msg-box{
+    margin-left: 20px;
+    height: 100%;
+}
