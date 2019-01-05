@@ -1,0 +1,14 @@
+.img-page{
+    background-image: url('https://picsum.photos/1900/1200?image=998&blur');
+}
+
+.signin-box{
+    height: 600px;
+    width: 700px;
+    margin-top: 100px;
+}
+.signin-form{
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+}

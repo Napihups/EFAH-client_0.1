@@ -6,7 +6,8 @@ import Store from './Store';
 // import layoutcss from '../src/css/layout.css';
 import App from './components/C_App';
 // Mockup purpose 
-import MockupHomepage from './components/MockupHomePage';
+// import MockupHomepage from './components/MockupHomePage';
+import PublicHome from './components/PublicModules/PublicHome';
 
 // ReactDOM.render(
 //     <Provider store = {Store}>
@@ -15,8 +16,9 @@ import MockupHomepage from './components/MockupHomePage';
 //     document.getElementById('root')
 // )
 
+//only for testing 
 ReactDOM.render(
-    <MockupHomepage />, document.getElementById('root')
+    <PublicHome />, document.getElementById('root')
 )
 
 

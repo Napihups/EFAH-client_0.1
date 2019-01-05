@@ -1,0 +1,65 @@
+Author : Napihup
+Date of revision : 05/10/2019
+Title : Class Component
+Desc : This is the specs and template of writing the class components.
+
++-------------------------------------------------------------------------+
+
+/** Imports ----------------------------------**/
+import react, { Component } from 'react';
+import ComponentName from 'filepathtocomponent';
+
+
+class ABCComponent extends Component {
+
+
+    constructor(props){
+        super(props);
+
+        /** Local states **/
+        this.state = {
+            // to do code
+        }
+
+    }
+
+
+
+    /** lifecycles hooks **/
+    componentWillMount(){
+        //to do code
+    }
+    componentDidMount(){
+        //to do code
+    }
+
+    /** functions **/
+    _handleClick = () => {}
+
+    _handleMoveMouse = () => {}
+
+
+    render(){
+        return(
+            // JSX
+        );
+    }
+
+
+}
+
+
+
+
+
++-------------------------------------------------------------------------+
+
+
+
+
+
+
+
+
+
+

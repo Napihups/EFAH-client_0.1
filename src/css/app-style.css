@@ -1,0 +1,28 @@
+/** Common uses for Applications*/
+/**
+Author by : Napihup
+Date or revision : 05-01-2019
+Desc : Styling for commons UI components 
+*/
+
+:root {
+    --page-bg : #e9ebee;
+    --primary-color: #00897B;
+    --primary-color-hover: #067a6f;
+    --scrollbar-thumb: #00897B;
+    --border-line : #d5dbe0;
+    --input-dark-bg : #f1f5f8;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background: var(--page-bg)
+}
+
+/* For custom dark grey input background */
+.input-dark .form-control{
+    background : var(--input-dark-bg) !important;
+}
+
+
