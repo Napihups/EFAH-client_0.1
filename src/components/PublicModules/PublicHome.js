@@ -39,7 +39,9 @@ class PublicHome extends Component {
                 <div className="container p-5 signin-box">
                     <div className="box bg-white text-grey-dark border border-grey-dark rounded">
                         <div className="col-md-5 text-grey-dark border-r-1 h-full bg-primary" >
-                            dvcav
+                           <div className="flex w-full py-6">
+                            <img src="./images/Logo_main.PNG" className="img-fluid logo-public-page" alt="Logo"/>
+                           </div>
                         </div>
                         <div className="col-md-7 text-grey-dark">
                             <div className="flex justify-center bg- p-5 m-t-4">
