@@ -12,10 +12,13 @@
     margin: 0 auto;
     margin-top: 50px;
 }
-
-
 .logo-public-page{
     height: 40px;
     /* margin: 0 auto; */
     /* width: 100%;  */
+}
+
+.create-acc-btn:hover {
+    background: var(--primary-color-hover) !important;
+    cursor: pointer;
 }

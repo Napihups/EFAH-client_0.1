@@ -37,7 +37,7 @@ class PublicHome extends Component {
            <div className="flex img-page w-full h-screen">
                 
                 <div className="container p-5 signin-box">
-                    <div className="box bg-white text-grey-dark border border-grey-dark rounded">
+                    <div className="box bg-white text-grey-dark shadow-lg rounded">
                         <div className="col-md-5 text-grey-dark border-r-1 h-full bg-primary" >
                            <div className="flex w-full py-6">
                             <img src="./images/Logo_main.PNG" className="img-fluid logo-public-page" alt="Logo"/>
@@ -48,8 +48,19 @@ class PublicHome extends Component {
                                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
                                 </span>
                             </div>
+                            
+                            <div style={{marginTop: '50px', padding: "0 15px"}}>
+                                <div className="flex rounded p-6 create-acc-btn border-b-4 border-grey-dark" style={{marginTop: '20px'}}>
+                                    <i className="fas fa-chalkboard-teacher fa-2x flex-2"></i>
+                                    <p className="font-bold text-2xl ml-4 flex-1 ml-5">I'm a Trainer</p>
+                                </div>
 
-
+                                <div className="flex rounded p-6 create-acc-btn border-b-4 border-grey-dark" style={{marginTop: '20px'}}>
+                                    <i className="fas fa-user-graduate fa-2x flex-2"></i>
+                                    <p className="font-bold text-2xl ml-4 flex-1 ml-5">I'm a Student</p>
+                                </div>
+                            </div>
+                            
 
 
                         </div>

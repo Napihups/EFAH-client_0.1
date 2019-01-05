@@ -12,6 +12,8 @@ Desc : Styling for commons UI components
     --scrollbar-thumb: #00897B;
     --border-line : #d5dbe0;
     --input-dark-bg : #f1f5f8;
+    --emp-color : #f26a99;
+    --emp-color-hover: #d35883;
 }
 
 body {
