@@ -40,6 +40,7 @@ class AppComponent extends Component {
                         isAuthenticated = {this.props.isAuthenticated}/>
                     }} />
 
+
                     <Route exact path="/" render={() => {
                         return <Redirect to ="/auth"/>
                     }}/>

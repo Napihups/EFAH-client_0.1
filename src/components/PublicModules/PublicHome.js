@@ -100,7 +100,7 @@ const FormCard = ({...props}) => {
 
     return (    
         <div className="container p-5 signin-container">
-            <div className={`box bg-white text-grey-darker shadow-lg rounded ${ compProps.cardClass }`}>
+            <div className={`box bg-white text-grey-darker shadow-lg rounded-lg ${ compProps.cardClass }`}>
                 <IntroSideCard />
                 <FormSideCard handleRmbMe = {compProps.handleRmbMe}/>
             </div>
@@ -156,29 +156,17 @@ Date of revision : 05-01-2019
 Desc : This Components is the form display container for the signin user 
 +-----------------------------------------------------------------------------------------**/
 const FormSideCard = ({...props}) => {
-    /**Default properties for this functional component */
+    
     let compProps  = {
         handleRmbMe : props.handleRmbMe
     }
 
     return(
-        <div className="col-md-7">
-            <div className="flex justify-left text-white p-5 m-t-4" style={{marginLeft:"30px"}}>
+        <div className="col-md-7 text-grey-dark">
+            <div className="flex justify-left p-5 m-t-4" style={{marginLeft:"30px"}}>
                 <h3>Sign in with</h3>
             </div>
-            <div className ="signin-form">
-
-               
-                <div className="btn btn-lg btn-google w-full my-3">
-                    <i className="fab fa-google-plus-g mr-3"></i>Google
-                </div>
-                <div className="btn btn-lg btn-facebook w-full my-3">
-                <i className="fab fa-facebook-f mr-3"></i>Facebook
-                </div>
-
-                <hr className="form-divider rounded-full"></hr>
-                    
-                <h4 className="my-5 text-grey-dark text-center" >Sign in with your account</h4>
+            <div className ="signin-form">      
                 <div className="input-group input-group-lg input-dark my-4">
                     <span className="input-group-addon"><i className="fas fa-user"></i></span>
                     <input type="text" className="form-control" placeholder="Username or Email"/>
@@ -195,11 +183,21 @@ const FormSideCard = ({...props}) => {
                         <div className="switcher-yes">YES</div>
                         <div className="switcher-no">NO</div>
                     </div>
-                    <span className="ml-0 text-grey-dark font-bold">Remember me </span>
+                    <span className="ml-0 font-bold">Remember me </span>
                 </label>
                 <div className="btn btn-emp btn-lg w-full signin-btn">Sign in</div>
 
-               
+                <hr className="form-divider rounded-full"></hr>
+                <h4 className="my-5 text-center" >or sign in with</h4>
+                <div className="flex p-5 justify-center">
+                    <div className="auth-btn bg-google float-left mx-2">
+                        <i className="fab fa-google-plus-g"></i>
+                    </div>
+                    <div className="auth-btn bg-facebook float-left mx-2">
+                        <i className="fab fa-facebook-f mr-3"></i>
+                    </div>
+                </div>
+
             </div>
         </div>
     );

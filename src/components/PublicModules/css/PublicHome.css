@@ -1,49 +1,47 @@
 .img-page{
     background-image: url('https://picsum.photos/1900/1200?image=998&blur');
-}
-
-.signin-container{
-    height: 600px;
-    width: 700px;
-    margin-top: 100px;
+}.signin-container{
+    height: 500px;
+    width: 600px;
     position: relative;
-}
-
-.signin-container .signin-card {
+    margin: auto auto;
+    padding-bottom: 10px; 
+}.signin-container .signin-card {
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-color), 50%, #fff 50%);
-    /* background-color: var(--primary-color) !important; */
+    background: -webkit-linear-gradient(left, var(--primary-color), var(--primary-color) 45%, white 30%, white);
     
-}
-
-.signin-btn{
+}.signin-btn{
     margin-top: 23px;
-}
-
-
-.signin-form{
-    width: 300px;
-    margin: 0 auto;
+}.signin-form{
+    width: 250px;
+    margin: 0 40px 0;
     margin-top: 20px;
-}
-.logo-public-page{
+    padding-right: auto;
+    padding-left: auto;
+}.logo-public-page{
     height: 40px;
-    /* margin: 0 auto; */
-    /* width: 100%;  */
-}
-
-.create-acc-btn:hover {
+}.create-acc-btn:hover {
     background: var(--primary-color-hover) !important;
     cursor: pointer;
 }
-
 /** Form signin divider between google/fb login and account form */
 .form-divider{
-    margin-top: 20px;
-    margin-bottom: 70px;
-    /* margin: 40px 0; */
+    margin-top: 10px;
+    margin-bottom: 30px;
     border: none;
-    background: var(--primary-color);
     height: 7px;
     width: 40%;
 }
+/** Google and facebook btn ------------*/
+.auth-btn{
+    height: 50px;
+    width:50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 9999px;
+    font-size: 20px;
+}.auth-btn:hover {
+    background: var(--primary-color) !important;
+    cursor: pointer;
+}
+
