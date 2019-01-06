@@ -34,15 +34,16 @@ export default class PublicHome extends Component {
 
 
     /** Functions  ---------------------------------------------------*/
-
-
-    render(){
+    _renderDisplay = () => {
         return(
-
-           <div className="flex img-page w-full h-screen">
+            <div className="flex img-page w-full h-screen">
                 <MainSigninForm />
-           </div>
+            </div>
         );
+    }
+
+    render(){     
+        return(this.props.isAuthenticated ? <Redirect to = "/user/" /> : this._renderDisplay());
     }
 }
 
@@ -155,7 +156,6 @@ Date of revision : 05-01-2019
 Desc : This Components is the form display container for the signin user 
 +-----------------------------------------------------------------------------------------**/
 const FormSideCard = ({...props}) => {
-    
     /**Default properties for this functional component */
     let compProps  = {
         handleRmbMe : props.handleRmbMe
@@ -163,10 +163,22 @@ const FormSideCard = ({...props}) => {
 
     return(
         <div className="col-md-7">
-            <div className="flex justify-center text-white p-5 m-t-4" style={{marginRight:"80px"}}>
-                <h3>Sign In to your Account</h3>
+            <div className="flex justify-left text-white p-5 m-t-4" style={{marginLeft:"30px"}}>
+                <h3>Sign in with</h3>
             </div>
             <div className ="signin-form">
+
+               
+                <div className="btn btn-lg btn-google w-full my-3">
+                    <i className="fab fa-google-plus-g mr-3"></i>Google
+                </div>
+                <div className="btn btn-lg btn-facebook w-full my-3">
+                <i className="fab fa-facebook-f mr-3"></i>Facebook
+                </div>
+
+                <hr className="form-divider rounded-full"></hr>
+                    
+                <h4 className="my-5 text-grey-dark text-center" >Sign in with your account</h4>
                 <div className="input-group input-group-lg input-dark my-4">
                     <span className="input-group-addon"><i className="fas fa-user"></i></span>
                     <input type="text" className="form-control" placeholder="Username or Email"/>
@@ -176,27 +188,18 @@ const FormSideCard = ({...props}) => {
                     <input type="password" className="form-control" placeholder="Password"/>
                 </div>
                 
-                <label htmlFor="switcher-efah" 
-                className="switcher switcher-sm switcher-secondary text-primary font-bold">
-                    <input type="checkbox" id="switcher-efah" onChange = {(e) => compProps.handleRmbMe(e)}/>
+                <label htmlFor="switcher-primary" 
+                className="switcher switcher-sm switcher-primary">
+                    <input type="checkbox" id="switcher-primary" onChange = {(e) => compProps.handleRmbMe(e)}/>
                     <div className="switcher-indicator">
                         <div className="switcher-yes">YES</div>
                         <div className="switcher-no">NO</div>
                     </div>
-                    <span className="ml-6">Remember me </span>
+                    <span className="ml-0 text-grey-dark font-bold">Remember me </span>
                 </label>
-                <div className="btn btn-emp btn-lg w-full mt-3">Sign in</div>
+                <div className="btn btn-emp btn-lg w-full signin-btn">Sign in</div>
 
-                <hr style={{paddingBottom: '30px'}}></hr>
-                <h4 className="my-5 text-grey-dark text-center" >or sign in with</h4>
-
-
-                <div className="btn btn-lg btn-google w-full my-3">
-                    <i className="fab fa-google-plus-g mr-3"></i>Google
-                </div>
-                <div className="btn btn-lg btn-facebook w-full my-3">
-                <i className="fab fa-facebook-f mr-3"></i>Facebook
-                </div>
+               
             </div>
         </div>
     );

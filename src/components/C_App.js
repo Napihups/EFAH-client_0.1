@@ -13,7 +13,7 @@ import PublicHome from './C_PublicHome';
 import UnknownRoute from './C_UnknownRoute';
 import UserRoute from './C_UserRoute';
 import UserModules from './C_UserModules';
-import PageLoader from './C_PageLoader';
+import PageLoader from './PageLoader';
 
 
 class App extends Component {

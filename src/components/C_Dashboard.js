@@ -2,7 +2,7 @@ import React , { Component } from 'react';
 import '../css/dashboard.css';
 import Store from '../Store';
 import { Redirect } from 'react-router-dom';
-import PageLoader from '../components/C_PageLoader'
+import PageLoader from '../components/PageLoader'
 import { getUser } from '../redux/actions/ACT_user';
 import { connect } from 'react-redux';
 

@@ -16,11 +16,15 @@
     
 }
 
+.signin-btn{
+    margin-top: 23px;
+}
+
 
 .signin-form{
     width: 300px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .logo-public-page{
     height: 40px;
@@ -31,4 +35,15 @@
 .create-acc-btn:hover {
     background: var(--primary-color-hover) !important;
     cursor: pointer;
+}
+
+/** Form signin divider between google/fb login and account form */
+.form-divider{
+    margin-top: 20px;
+    margin-bottom: 70px;
+    /* margin: 40px 0; */
+    border: none;
+    background: var(--primary-color);
+    height: 7px;
+    width: 40%;
 }
