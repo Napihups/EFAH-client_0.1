@@ -19,7 +19,7 @@ Desc : Styling for commons UI components
 body {
     margin: 0px;
     padding: 0px;
-    background: var(--page-bg)
+    background: var(--page-bg)  
 }
 
 /* For custom dark grey input background */

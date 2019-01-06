@@ -2,11 +2,21 @@
     background-image: url('https://picsum.photos/1900/1200?image=998&blur');
 }
 
-.signin-box{
+.signin-container{
     height: 600px;
     width: 700px;
     margin-top: 100px;
+    position: relative;
 }
+
+.signin-container .signin-card {
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), 50%, #fff 50%);
+    /* background-color: var(--primary-color) !important; */
+    
+}
+
+
 .signin-form{
     width: 300px;
     margin: 0 auto;
