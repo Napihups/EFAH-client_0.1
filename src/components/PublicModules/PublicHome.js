@@ -70,7 +70,6 @@ class MainSigninForm extends Component {
         })
     }
 
-
     render(){
         return(
            <React.Fragment>
@@ -156,8 +155,7 @@ Date of revision : 05-01-2019
 Desc : This Components is the form display container for the signin user 
 +-----------------------------------------------------------------------------------------**/
 const FormSideCard = ({...props}) => {
-
-
+    
     /**Default properties for this functional component */
     let compProps  = {
         handleRmbMe : props.handleRmbMe
