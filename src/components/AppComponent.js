@@ -35,15 +35,26 @@ class AppComponent extends Component {
         return(
             <Router>
                 <React.Fragment>
-                    <Route exact path = "/auth" render={(match) => {
-                        return <PublicHome match = {match} 
-                        isAuthenticated = {this.props.isAuthenticated}/>
-                    }} />
+                    <Switch>
+                        <Route exact path = "/auth" render={(data) => {
+                            return <PublicHome match = {data.match}     
+                            isAuthenticated = {this.props.isAuthenticated}/>
+                        }} />
+                        <Route path= "/signup-teacher" render={(match) => {
+                            return <PublicHome match = {match} 
+                            isAuthenticated = {this.props.isAuthenticated}/>
+                        }}/>
+                        <Route path= "/signup-student" render={(match) => {
+                            return <PublicHome match = {match} 
+                            isAuthenticated = {this.props.isAuthenticated}/>
+                        }}/>
+                        <Route render={() => {
+                            return <Redirect to ="/auth"/>
+                        }}/>
+                    </Switch>
 
 
-                    <Route exact path="/" render={() => {
-                        return <Redirect to ="/auth"/>
-                    }}/>
+                
                      
                  
                 </React.Fragment>

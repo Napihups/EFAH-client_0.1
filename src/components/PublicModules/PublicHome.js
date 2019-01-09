@@ -20,13 +20,14 @@ Author by : Napihups
 Date of revision : 05-01-2019
 Desc : This Components is to organised all other components layout to form
 the Home page when user is not logged in 
+Properties : {
+    isAuthentication,
+    match
+}
 +-----------------------------------------------------------------------------------------**/
 export default class PublicHome extends Component {
 
-    // TBC
-    // static propTypes = {
-    //     isAuthentication : PropTypes.number.isRequired
-    // }
+
 
     constructor(props){
         super(props);
@@ -37,12 +38,22 @@ export default class PublicHome extends Component {
     _renderDisplay = () => {
         return(
             <div className="flex img-page w-full h-screen">
-                <MainSigninForm />
+                {this._handleFormCards()}
             </div>
         );
     }
 
-    render(){     
+
+    _handleFormCards = () => {
+        switch(this.props.match.path){
+            case '/auth' : return <MainSigninForm />
+            case '/signup-student': return <h1>Sign up for student</h1>
+            case '/signup-teacher': return <h1>Sign up for teacher</h1>
+        }
+    }
+
+    render(){  
+        console.log(this.props.match);   
         return(this.props.isAuthenticated ? <Redirect to = "/user/" /> : this._renderDisplay());
     }
 }
@@ -64,7 +75,7 @@ class MainSigninForm extends Component {
         }
     }
 
-    /** Functions --------------------------------------- */
+    /** Functions associated --------------------------------------- */
     _handleRmbMe = (e) => {
         this.setState({
             rememberMeChecked : e.target.checked ? true : false
@@ -116,8 +127,17 @@ Type : Functional component
 Author by : Napihups
 Date of revision : 05-01-2019
 Desc : This Components is the left side of the cards which displaying introduction and some btns
+Function Props : [
+    handleTeacherSignupPage -> to handle rendering the page when user click on 'i am a teacher' button
+    handleStudentSignupPage -> to handle rendering the page when user click on 'i am a Student' button
+]
 +-----------------------------------------------------------------------------------------**/
-const IntroSideCard = () => {
+const IntroSideCard = ({...props}) => {
+
+    let compProps = {
+        handleTeacherSignupPage : props.handleTeacherSignupPage,
+        handleStudentSignupPage : props.handleStudentSignupPage
+    }
 
     return (
         <div className="col-md-5 border-r-1" >
@@ -127,7 +147,7 @@ const IntroSideCard = () => {
 
             <div className="flex w-full mt-5 text-center" style={{marginTop: '30px'}}>
                 <span className="text-2xl">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 </span>
             </div>           
             <div style={{marginTop: '50px', padding: "0 15px"}}>
@@ -156,7 +176,7 @@ Date of revision : 05-01-2019
 Desc : This Components is the form display container for the signin user 
 +-----------------------------------------------------------------------------------------**/
 const FormSideCard = ({...props}) => {
-    
+
     let compProps  = {
         handleRmbMe : props.handleRmbMe
     }
