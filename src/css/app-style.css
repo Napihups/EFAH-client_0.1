@@ -28,4 +28,11 @@ body {
     background : var(--input-dark-bg) !important;
 }
 
+/** for button padding -----------*/
+
+.btn-padding-1{
+    padding-left: 70px !important;
+    padding-right: 70px !important;
+}
+
 

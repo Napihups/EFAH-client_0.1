@@ -45,3 +45,47 @@
     cursor: pointer;
 }
 
+/** For sign form ----------------------*/
+.signup-box{
+    margin: auto auto;
+    margin-top: 200px;
+    width: 600px;
+    height: 600px;
+    /* padding: 100px; */
+    padding-left: 100px;
+    padding-right: 100px;
+    /* margin-bottom: auto; */
+}.sign-up-form-header{
+    padding: 20px;
+    font-size: 25px;
+}.icon-header{
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    border: 1px solid white !important;
+    border-radius: 9999px;
+}
+
+.input-icon {
+    position: absolute;
+    line-height: 21px;
+    width: 36px;
+    border-color: rgba(0, 0, 0, .14);
+    border-right-width: 1px;
+    border-right-style: solid;
+    left: 1px;
+    top: 9px;
+    text-align: center;
+    font-size: 15px;
+  }
+
+.page-signup-form-group { 
+    position: relative; 
+    width: 250px;
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.page-signup-form-control {
+    padding-left: 50px !important;
+}

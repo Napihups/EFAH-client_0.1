@@ -1,7 +1,6 @@
 /** Imports */
 import React, { Component } from 'react';
-import { Redirect } from "react-router-dom"
-import PropTypes from "prop-types";
+import { Redirect, Link } from "react-router-dom"
 
 /** styling required */
 import '../../css/bootstrap.css'; // version 3
@@ -27,8 +26,6 @@ Properties : {
 +-----------------------------------------------------------------------------------------**/
 export default class PublicHome extends Component {
 
-
-
     constructor(props){
         super(props);
     }
@@ -38,44 +35,42 @@ export default class PublicHome extends Component {
     _renderDisplay = () => {
         return(
             <div className="flex img-page w-full h-screen">
-                {this._handleFormCards()}
+                {this._handleFormToDisplay()}
             </div>
         );
     }
-
-
-    _handleFormCards = () => {
-        switch(this.props.match.path){
-            case '/auth' : return <MainSigninForm />
-            case '/signup-student': return <h1>Sign up for student</h1>
-            case '/signup-teacher': return <h1>Sign up for teacher</h1>
+    _handleFormToDisplay = () => {
+        switch(this.props.match.path){        
+            case '/auth' : return <SigninForm />
+            case '/signup-student': return <SignupForm accType = 'STUDENT'/>
+            case '/signup-teacher': return <SignupForm accType = 'TEACHER'/>
         }
     }
 
-    render(){  
-        console.log(this.props.match);   
+    render(){     
         return(this.props.isAuthenticated ? <Redirect to = "/user/" /> : this._renderDisplay());
     }
 }
 
 
 /** ---------------------------------------------------------------------------------------+
-Name : MainSigninForm
+Name : SigninForm
 Type : Class component
 Author by : Napihups
 Date of revision : 05-01-2019
 Desc : This Components forms of the main signin. 
 +-----------------------------------------------------------------------------------------**/
-class MainSigninForm extends Component {
+class SigninForm extends Component {
 
     constructor(props){
         super(props);
         this.state = {
-            rememberMeChecked : false
+            rememberMeChecked : false,
+            formClass : 'signin-card'
         }
     }
 
-    /** Functions associated --------------------------------------- */
+    /** Functions --------------------------------------- */
     _handleRmbMe = (e) => {
         this.setState({
             rememberMeChecked : e.target.checked ? true : false
@@ -84,42 +79,23 @@ class MainSigninForm extends Component {
 
     render(){
         return(
-           <React.Fragment>
-               <FormCard cardClass = 'signin-card' handleRmbMe = {this._handleRmbMe} />
-           </React.Fragment>
+        //    <React.Fragment>
+        //        <FormCard cardClass = 'signin-card' handleRmbMe = {this._handleRmbMe} />
+        //    </React.Fragment>
+            <React.Fragment>
+                 <div className="container p-5 signin-container">
+                    <div className={`box bg-white text-grey-darker shadow-lg rounded-lg ${ this.state.formClass }`}>
+                        <IntroSideCard />
+                        <FormSideCard handleRmbMe = {this._handleRmbMe}/>
+                    </div>
+                </div>
+            </React.Fragment>
                 
         );
     }
 
 }
 
-
-/** ---------------------------------------------------------------------------------------+
-Name : FormCard
-Type : Functional component
-Author by : Napihups
-Date of revision : 05-01-2019
-Desc : This Components is the card elements
-+-----------------------------------------------------------------------------------------**/
-const FormCard = ({...props}) => {
-
-    /**Default properties for this functional component */
-    let compProps = {
-        cardClass : props.cardClass,
-        handleRmbMe: props.handleRmbMe
-    }
-
-    return (    
-        <div className="container p-5 signin-container">
-            <div className={`box bg-white text-grey-darker shadow-lg rounded-lg ${ compProps.cardClass }`}>
-                <IntroSideCard />
-                <FormSideCard handleRmbMe = {compProps.handleRmbMe}/>
-            </div>
-        </div>
-
-    );
-
-}
 
 /** ---------------------------------------------------------------------------------------+
 Name : IntroSideCard
@@ -151,15 +127,18 @@ const IntroSideCard = ({...props}) => {
                 </span>
             </div>           
             <div style={{marginTop: '50px', padding: "0 15px"}}>
-                <div className="flex rounded p-6 create-acc-btn border-b-4 border-grey-dark" style={{marginTop: '20px'}}>
-                    <i className="fas fa-chalkboard-teacher fa-2x flex-2"></i>
-                    <p className="font-bold text-2xl ml-4 flex-1 ml-5">I'm a Trainer</p>
-                </div>
-
-                <div className="flex rounded p-6 create-acc-btn border-b-4 border-grey-dark" style={{marginTop: '20px'}}>
-                    <i className="fas fa-user-graduate fa-2x flex-2"></i>
-                    <p className="font-bold text-2xl ml-4 flex-1 ml-5">I'm a Student</p>
-                </div>
+                <Link to="/signup-teacher">
+                    <div className="flex rounded p-6 create-acc-btn border-b-4 border-grey-dark" style={{marginTop: '20px'}}>
+                        <i className="fas fa-chalkboard-teacher fa-2x flex-2"></i>
+                        <p className="font-bold text-2xl ml-4 flex-1 ml-5">I'm a Teacher</p>
+                    </div>
+                </Link>
+                <Link to="/signup-student">
+                    <div className="flex rounded p-6 create-acc-btn border-b-4 border-grey-dark" style={{marginTop: '20px'}}>
+                        <i className="fas fa-user-graduate fa-2x flex-2"></i>
+                        <p className="font-bold text-2xl ml-4 flex-1 ml-5">I'm a Student</p> 
+                    </div>
+                </Link>
             </div>
         </div>
 
@@ -185,7 +164,7 @@ const FormSideCard = ({...props}) => {
         <div className="col-md-7 text-grey-dark">
             <div className="flex justify-left p-5 m-t-4" style={{marginLeft:"30px"}}>
                 <h3>Sign in with</h3>
-            </div>
+            </div> 
             <div className ="signin-form">      
                 <div className="input-group input-group-lg input-dark my-4">
                     <span className="input-group-addon"><i className="fas fa-user"></i></span>
@@ -221,4 +200,124 @@ const FormSideCard = ({...props}) => {
             </div>
         </div>
     );
+}
+
+
+
+/** ---------------------------------------------------------------------------------------+
+Name : SignupForm
+Type : Class component
+Author by : Napihups
+Date of revision : 09-01-2019
+Desc : This Components forms of the signup, for Student. 
+Properties : {
+    accType : String 
+}
++-----------------------------------------------------------------------------------------**/
+class SignupForm extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            formClass : 'signup-form',
+            fullNameInputProp : {
+                iconClass : 'fas fa-exclamation-circle',
+                inputType: 'text',
+                placeHolder : 'Full name'
+            },
+            emailInputProp : {
+                iconClass : 'fas fa-at',
+                inputType: 'email',
+                placeHolder : 'Email'
+            },
+            mobileInputProp : {
+                iconClass : 'fas fa-mobile-alt',
+                inputType: 'text',
+                placeHolder : 'Mobile no'
+            },
+            userNameInputProp : {
+                iconClass : 'far fa-user',
+                inputType: 'text',
+                placeHolder : 'Username'
+            },
+            passwordInputProp : {
+                iconClass : 'fas fa-unlock-alt',
+                inputType: 'password',
+                placeHolder : 'Password'
+            }
+        }
+        this.inputFullNameRef = React.createRef();
+    }
+
+    /** Lifecycle hooks ---------------------------------- */
+    componentDidMount(){
+        this.inputFullNameRef.current.focus();
+    }
+
+
+     /** Functions --------------------------------------- */
+     _displayFormInput =(props, ref) => {
+
+        const { iconClass, inputType, placeHolder } = props;
+        return(
+            <div className="page-signup-form-group form-group form-group-lg input-dark">
+                <div className="input-icon text-grey-light mr-3"> <i className={iconClass}></i></div>
+                <input ref={ref} className="form-control page-signup-form-control" type={inputType} placeholder={placeHolder}/>
+            </div>
+        )
+     }
+
+    render(){
+        return(
+            <React.Fragment>
+            <div className="container bg-">
+                <div className="signup-box bg-primary rounded-lg shadow-lg">
+                    <div className="flex flex-col bg- sign-up-form-header justify-center">
+                    <div className="text-white text-center px-2 py-2 m-1">
+                    Create a {this.props.accType === 'STUDENT' ? 'Student' : 'Teacher'} account
+                    </div>
+                    <div className="text-white px-2 py-2 m-1">
+                       <div className="icon-header bg- text-center mx-auto">
+                       <i className={this.props.accType === 'STUDENT' ? "fas fa-user-graduate" :"fas fa-chalkboard-teacher"}></i>
+                       </div>
+                    </div>
+                        
+
+                    </div>
+                    <div className="panel panel-body shadow-lg rounded-lg justify-center">
+
+                        {this._displayFormInput(this.state.fullNameInputProp, this.inputFullNameRef)}
+                        {this._displayFormInput(this.state.emailInputProp)}
+                        {this._displayFormInput(this.state.mobileInputProp)}
+                        {this._displayFormInput(this.state.userNameInputProp)}
+                        {this._displayFormInput(this.state.passwordInputProp)}
+
+                        <div className="flex m-4">
+                            <label class="custom-control custom-checkbox text-grey-darker" for="custom-checkbox-4">
+                            <input type="checkbox" id="custom-checkbox-4" class="custom-control-input"/>
+                            <span class="custom-control-indicator"></span>
+                            I agree with the <span className="text-primary font-bold">Terms & Conditions</span>
+                            </label>
+                        </div>
+                
+                    </div>
+
+                    <div className="flex">
+                        <div className="flex-1 p-2">
+                            <div className="btn btn-emp btn-lg btn-padding-1">Register</div>               
+                        </div>
+                        <div className="flex-1 p-2 text-right"> 
+                            <Link to="/auth">
+                                <div className="btn btn-link text-white btn-lg"> 
+                                <i className="fas fa-chevron-left"></i> back 
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            </React.Fragment>
+        );
+    }
+
 }

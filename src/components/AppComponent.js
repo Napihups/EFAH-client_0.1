@@ -40,12 +40,12 @@ class AppComponent extends Component {
                             return <PublicHome match = {data.match}     
                             isAuthenticated = {this.props.isAuthenticated}/>
                         }} />
-                        <Route path= "/signup-teacher" render={(match) => {
-                            return <PublicHome match = {match} 
+                        <Route path= "/signup-teacher" render={(data) => {
+                            return <PublicHome match = {data.match} 
                             isAuthenticated = {this.props.isAuthenticated}/>
                         }}/>
-                        <Route path= "/signup-student" render={(match) => {
-                            return <PublicHome match = {match} 
+                        <Route path= "/signup-student" render={(data) => {
+                            return <PublicHome match = {data.match} 
                             isAuthenticated = {this.props.isAuthenticated}/>
                         }}/>
                         <Route render={() => {
