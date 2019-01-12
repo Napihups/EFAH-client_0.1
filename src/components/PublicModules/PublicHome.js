@@ -252,6 +252,7 @@ class SignupForm extends Component {
     /** Lifecycle hooks ---------------------------------- */
     componentDidMount(){
         this.inputFullNameRef.current.focus();
+        
     }
 
 
