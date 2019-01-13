@@ -24,11 +24,11 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // ));
 
 
-const store     = createStore(
+const store = createStore(
     reducers,
     composeEnhancers(
       applyMiddleware(...AuthMiddleware, ...UserMiddleware, ...APIMiddleware, ...eventMiddleware),
     )
   );
 
-  export default store;
+export default store;

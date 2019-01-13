@@ -6,6 +6,7 @@ export const CREATE_TOKEN_SUCCESS = '[Auth] Token Creation Success';
 export const CREATE_TOKEN_ERROR = '[Auth] Token Creation error';
 export const SAVE_TOKEN_PROGRESS = '[Auth] Saving token to cookies';
 export const SAVE_TOKEN_DONE = '[Auth] Token saved';
+export const SAVE_TOKEN = '[Auth] Token saving into Cookies';
 
 
 export const getToken = () => ({
@@ -29,6 +30,11 @@ export const createTokenSuccess = (token) => ({
 export const createTokenError = (err) => ({
     type : CREATE_TOKEN_SUCCESS,
     payload : err
+})
+
+export const saveTokenToCookie = (token) => ({
+    type : SAVE_TOKEN,
+    payload : token
 })
 
 export const createTokenInProgress = () => ({

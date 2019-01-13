@@ -1,11 +1,13 @@
-import { GET_TOKEN, CREATE_TOKEN_SUCCESS, fetchTokenSuccess, fetchTokenError, saveTokenInProgress, tokenSavedDone, getToken  } from '../actions/ACT_auth';
+import { GET_TOKEN, CREATE_TOKEN_SUCCESS, 
+    fetchTokenSuccess, fetchTokenError, saveTokenInProgress, 
+    tokenSavedDone, getToken,
+    SAVE_TOKEN  } from '../actions/ACT_auth';
 import { inFetchingAuth , loadedAuth } from '../actions/ACT_ui';
 import { getCookieToken, saveCookie } from '../../utils/cookieUtils';
 
 export const getAuthToken = ({dispatch}) => next => action => {
     
     next(action);
-    console.log(action)
     switch(action.type) {
         case GET_TOKEN : {
             dispatch(inFetchingAuth());
@@ -35,6 +37,13 @@ export const getAuthToken = ({dispatch}) => next => action => {
             // }, 1000)
             break;
         }
+
+        case SAVE_TOKEN : {
+            saveCookie(action.payload);
+            dispatch(tokenSavedDone());
+            break;
+        }
+        
     }
     
 }

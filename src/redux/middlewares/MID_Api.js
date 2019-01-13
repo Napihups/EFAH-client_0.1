@@ -31,10 +31,11 @@ export const api = ({dispatch}) => next => action => {
             .catch((err) => dispatch({type : onError, payload : err}))
         } 
         else if(method === 'POST'){
-            let user = action.payload;
-            a.post(url, {user} )
+            console.log(action.payload);
+            let data = action.payload;
+            a.post(url, {data} , {headers : createHeader()} )
             .then((resp) => {
-                // console.log(resp);
+                console.log(resp);
                 let data = resp.data;
                 if(data.success){
                    dispatch(onSuccess(data.payload))

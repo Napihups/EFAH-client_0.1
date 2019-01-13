@@ -1,6 +1,8 @@
 /** Imports */
 import React, { Component } from 'react';
-import { Redirect, Link } from "react-router-dom"
+import { Redirect, Link } from "react-router-dom";
+import Store from '../../Store';
+import { signInUser } from '../../redux/actions/ACT_events';
 
 /** styling required */
 import '../../css/bootstrap.css'; // version 3
@@ -66,7 +68,9 @@ class SigninForm extends Component {
         super(props);
         this.state = {
             rememberMeChecked : false,
-            formClass : 'signin-card'
+            formClass : 'signin-card',
+            usernameInput : '',
+            passwordInput : ''
         }
     }
 
@@ -77,20 +81,84 @@ class SigninForm extends Component {
         })
     }
 
+    _handleInputChange (event) {
+        this.setState({ [event.target.name]: event.target.value })
+        this._validateSigninForm();
+    }
+
+    _handleLogin = (e) => {
+        e.preventDefault();
+        let credentials = {
+            username : this.state.usernameInput,
+            password : this.state.passwordInput
+        }
+
+        Store.dispatch(signInUser(credentials));
+
+    }
+
+    _validateSigninForm = () => {
+        console.log("form is validating ");
+    }
+
     render(){
         return(
-        //    <React.Fragment>
-        //        <FormCard cardClass = 'signin-card' handleRmbMe = {this._handleRmbMe} />
-        //    </React.Fragment>
             <React.Fragment>
                  <div className="container p-5 signin-container">
                     <div className={`box bg-white text-grey-darker shadow-lg rounded-lg ${ this.state.formClass }`}>
                         <IntroSideCard />
-                        <FormSideCard handleRmbMe = {this._handleRmbMe}/>
+                        {this.displaySignInForm()}
                     </div>
                 </div>
             </React.Fragment>
                 
+        );
+    }
+
+
+    /** UI Display methods */
+    displaySignInForm = () => {
+        return(
+            <div className="col-md-7 text-grey-dark">
+                <div className="flex justify-left p-5 m-t-4" style={{marginLeft:"30px"}}>
+                    <h3>Sign in with</h3>
+                </div> 
+                <div className ="signin-form">      
+                    <div className="input-group input-group-lg input-dark my-4">
+                        <span className="input-group-addon"><i className="fas fa-user"></i></span>
+                        <input type="text" name="usernameInput" className="form-control" placeholder="Username or Email" 
+                        onChange={(e) => {this._handleInputChange(e)}}/>
+                    </div>
+                    <div className="input-group input-group-lg input-dark my-4">
+                        <span className="input-group-addon"><i className="fas fa-lock"></i></span>
+                        <input type="password" name="passwordInput" className="form-control" placeholder="Password" 
+                        onChange={(e) => {this._handleInputChange(e)}}/>
+                    </div>
+                    
+                    <label htmlFor="switcher-primary" 
+                    className="switcher switcher-sm switcher-primary">
+                        <input type="checkbox" id="switcher-primary" onChange = {(e) => this._handleRmbMe(e)}/>
+                        <div className="switcher-indicator">
+                            <div className="switcher-yes">YES</div>
+                            <div className="switcher-no">NO</div>
+                        </div>
+                        <span className="ml-0 font-bold">Remember me </span>
+                    </label>
+                    <div className="btn btn-emp btn-lg w-full signin-btn" onClick={this._handleLogin}>Sign in</div>
+
+                    <hr className="form-divider rounded-full"></hr>
+                    <h4 className="my-5 text-center" >or sign in with</h4>
+                    <div className="flex p-5 justify-center">
+                        <div className="auth-btn bg-google float-left mx-2">
+                            <i className="fab fa-google-plus-g"></i>
+                        </div>
+                        <div className="auth-btn bg-facebook float-left mx-2">
+                            <i className="fab fa-facebook-f mr-3"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         );
     }
 
@@ -147,60 +215,6 @@ const IntroSideCard = ({...props}) => {
 }
 
 
-/** ---------------------------------------------------------------------------------------+
-Name : FormSideCard
-Type : Functional component
-Author by : Napihups
-Date of revision : 05-01-2019
-Desc : This Components is the form display container for the signin user 
-+-----------------------------------------------------------------------------------------**/
-const FormSideCard = ({...props}) => {
-
-    let compProps  = {
-        handleRmbMe : props.handleRmbMe
-    }
-
-    return(
-        <div className="col-md-7 text-grey-dark">
-            <div className="flex justify-left p-5 m-t-4" style={{marginLeft:"30px"}}>
-                <h3>Sign in with</h3>
-            </div> 
-            <div className ="signin-form">      
-                <div className="input-group input-group-lg input-dark my-4">
-                    <span className="input-group-addon"><i className="fas fa-user"></i></span>
-                    <input type="text" className="form-control" placeholder="Username or Email"/>
-                </div>
-                <div className="input-group input-group-lg input-dark my-4">
-                    <span className="input-group-addon"><i className="fas fa-lock"></i></span>
-                    <input type="password" className="form-control" placeholder="Password"/>
-                </div>
-                
-                <label htmlFor="switcher-primary" 
-                className="switcher switcher-sm switcher-primary">
-                    <input type="checkbox" id="switcher-primary" onChange = {(e) => compProps.handleRmbMe(e)}/>
-                    <div className="switcher-indicator">
-                        <div className="switcher-yes">YES</div>
-                        <div className="switcher-no">NO</div>
-                    </div>
-                    <span className="ml-0 font-bold">Remember me </span>
-                </label>
-                <div className="btn btn-emp btn-lg w-full signin-btn">Sign in</div>
-
-                <hr className="form-divider rounded-full"></hr>
-                <h4 className="my-5 text-center" >or sign in with</h4>
-                <div className="flex p-5 justify-center">
-                    <div className="auth-btn bg-google float-left mx-2">
-                        <i className="fab fa-google-plus-g"></i>
-                    </div>
-                    <div className="auth-btn bg-facebook float-left mx-2">
-                        <i className="fab fa-facebook-f mr-3"></i>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    );
-}
 
 
 
@@ -294,9 +308,9 @@ class SignupForm extends Component {
                         {this._displayFormInput(this.state.passwordInputProp)}
 
                         <div className="flex m-4">
-                            <label class="custom-control custom-checkbox text-grey-darker" for="custom-checkbox-4">
-                            <input type="checkbox" id="custom-checkbox-4" class="custom-control-input"/>
-                            <span class="custom-control-indicator"></span>
+                            <label className="custom-control custom-checkbox text-grey-darker" for="custom-checkbox-4">
+                            <input type="checkbox" id="custom-checkbox-4" className="custom-control-input"/>
+                            <span className="custom-control-indicator"></span>
                             I agree with the <span className="text-primary font-bold">Terms & Conditions</span>
                             </label>
                         </div>

@@ -9,6 +9,7 @@ export function getCookieToken() {
         let token = c.split("=")[1];
         return token;
     }
+    return undefined;
 }
 export function deleteCookie(name) {
     document.cookie = 
