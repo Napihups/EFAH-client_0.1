@@ -21,7 +21,6 @@ export const signingIn = ({dispatch}) => next => action => {
             dispatch(apiRequest('POST', loginUrl, action.payload, loginSuccess, loginFailure ));
         }break;
         case LOGIN_SUCCESS : {
-            console.log(action.payload, 'LOGIN_SUCCESS');
             dispatch(saveTokenToCookie(action.payload));
         }
 
