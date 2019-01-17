@@ -21,7 +21,7 @@ export const api = ({dispatch}) => next => action => {
                         dispatch({type : onError, payload : resp.data.payload});
                         dispatch(loadedUser());
                     }
-               
+            
                 } 
             )
             
