@@ -6,7 +6,6 @@ const routeState = {
     nextUrl : '',
     onNext : false
 }
-
 export function routeReducer(state = routeState, action) {
 
     switch(action.type) {

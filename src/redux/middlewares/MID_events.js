@@ -3,7 +3,7 @@ import { apiRequest } from '../actions/ACT_api';
 import { createTokenSuccess, 
     createTokenError, 
     createTokenInProgress,
-    saveTokenToCookie } from '../actions/ACT_auth';
+    saveTokenToCookie, validateAuth } from '../actions/ACT_auth';
 import { loginSuccess, loginFailure } from '../actions/ACT_events';
 // const googleAuthUrl = 'http://localhost:5000/auth/google'
 // const facebookAuthUrl = 'http://localhost:5000/auth/facebook'
@@ -19,6 +19,7 @@ export const signingIn = ({dispatch}) => next => action => {
         }break;
         case USER_IS_LOGIN_IN : {
             dispatch(apiRequest('POST', loginUrl, action.payload, loginSuccess, loginFailure ));
+            dispatch(validateAuth())
         }break;
         case LOGIN_SUCCESS : {
             dispatch(saveTokenToCookie(action.payload));

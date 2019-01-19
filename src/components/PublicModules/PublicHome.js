@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from "react-router-dom";
 import Store from '../../Store';
-import { signInUser } from '../../redux/actions/ACT_events';
+import { signinUser } from '../../redux/events/login';
 
 /** styling required */
 import '../../css/bootstrap.css'; // version 3
@@ -93,7 +93,7 @@ class SigninForm extends Component {
             password : this.state.passwordInput
         }
 
-        Store.dispatch(signInUser(credentials));
+        Store.dispatch(signinUser(credentials));
 
     }
 

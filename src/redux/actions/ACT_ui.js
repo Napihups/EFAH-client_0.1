@@ -9,6 +9,10 @@ export const LOADED_AUTH = '[UI] Auth - Data loaded'
 
 export const IN_FETCHING_USER = '[UI] User - Data in fetching'
 export const LOADED_USER = '[UI] User - Data loaded'
+export const VALIDATINGAUTHINPROGRESS = '[UI] Auth - Validating user Auth in progress'
+export const VALIDATINGAUTHINSUCCESS = '[UI] Auth - Validation user auth Success'
+export const VALIDATINGAUTHINFAILURE = '[UI] Auth - Validation user auth Failed'
+export const VALIDATINGAUTHDONE = '[UI] Auth - Validation user Done'
 
 
 export const inFetchingAuth = ()=> ({
@@ -41,4 +45,20 @@ export const dataInFetching = () => ({
 
 export const dataLoaded = () => ({
     type : DATA_LOADED
+})
+
+export const validationAuthInProgress = () => ({
+    type : VALIDATINGAUTHINPROGRESS
+})
+
+export const validationAuthSuccess = () => ({
+    type : VALIDATINGAUTHINSUCCESS
+})
+
+export const validationAuthFailed = () => ({
+    type : VALIDATINGAUTHINFAILURE
+})
+
+export const validationAuthDone = () => ({
+    type : VALIDATINGAUTHDONE 
 })

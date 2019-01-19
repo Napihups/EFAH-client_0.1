@@ -1,30 +1,31 @@
 import { GET_TOKEN, CREATE_TOKEN_SUCCESS, 
     fetchTokenSuccess, fetchTokenError, saveTokenInProgress, 
     tokenSavedDone, getToken,
-    SAVE_TOKEN  } from '../actions/ACT_auth';
-import { inFetchingAuth , loadedAuth } from '../actions/ACT_ui';
+    SAVE_TOKEN,  
+    VALIDATING_AUTH} from '../actions/ACT_auth';
+import { validationAuthInProgress , validationAuthSuccess, validationAuthFailed, validationAuthDone } from '../actions/ACT_ui';
 import { getCookieToken, saveCookie } from '../../utils/cookieUtils';
 
 export const getAuthToken = ({dispatch}) => next => action => {
     
     next(action);
     switch(action.type) {
-        case GET_TOKEN : {
-            dispatch(inFetchingAuth());
+        // case GET_TOKEN : {
+        //     dispatch(validationAuthInProgress());
         
-            setTimeout(() => {
-                let token = getCookieToken();
-                if(token === undefined) {
-                    dispatch(fetchTokenError());
-                    dispatch(loadedAuth());
-                } else {
-                    dispatch(fetchTokenSuccess(token));
-                    dispatch(loadedAuth());
-                }
-            }, 1000)
+        //     setTimeout(() => {
+        //         let token = getCookieToken();
+        //         if(token === undefined) {
+        //             dispatch(fetchTokenError());
+        //             dispatch(loadedAuth());
+        //         } else {
+        //             dispatch(fetchTokenSuccess(token));
+        //             dispatch(loadedAuth());
+        //         }
+        //     }, 1000)
 
-            break;
-        }
+        //     break;
+        // }
 
         case CREATE_TOKEN_SUCCESS : {
             dispatch(saveTokenInProgress());
@@ -42,6 +43,18 @@ export const getAuthToken = ({dispatch}) => next => action => {
             saveCookie(action.payload);
             dispatch(tokenSavedDone());
             break;
+        }
+
+        case VALIDATING_AUTH : {
+            dispatch(validationAuthInProgress());
+            let token = getCookieToken();
+                if(token === undefined) {
+                    dispatch(validationAuthFailed());
+                    dispatch(validationAuthDone())
+                } else {
+                    dispatch(validationAuthSuccess());
+                    dispatch(validationAuthDone())
+                }
         }
         
     }

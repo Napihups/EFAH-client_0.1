@@ -7,6 +7,7 @@ export const CREATE_TOKEN_ERROR = '[Auth] Token Creation error';
 export const SAVE_TOKEN_PROGRESS = '[Auth] Saving token to cookies';
 export const SAVE_TOKEN_DONE = '[Auth] Token saved';
 export const SAVE_TOKEN = '[Auth] Token saving into Cookies';
+export const VALIDATING_AUTH = '[Auth] Validating Auth';
 
 
 export const getToken = () => ({
@@ -47,4 +48,8 @@ export const saveTokenInProgress = () => ({
 
 export const tokenSavedDone = () => ({
     type : SAVE_TOKEN_DONE
+})
+
+export const validateAuth = () => ({
+    type : VALIDATING_AUTH
 })

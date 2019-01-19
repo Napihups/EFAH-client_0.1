@@ -1,9 +1,9 @@
-export function saveTokenToCookie(data) {
+function saveTokenToCookie (data) {
     let cookieString = "token=" + data;
     document.cookie = cookieString;
 }
 
-export function getCookieToken() {
+function getCookieToken() {
     let key = document.cookie.split("=")[0];
     if(key === 'token'){
         let token = document.cookie.split("=")[1]
@@ -11,8 +11,15 @@ export function getCookieToken() {
     }
     return undefined;
 }
-export function deleteCookie(name) {
+
+function deleteCookie(name) {
     document.cookie = 
     [name, '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', 
     window.location.host.toString()].join('');
 }
+
+
+/** required modules */
+exports.saveTokenToCookie = saveTokenToCookie;
+exports.getCookieToken = getCookieToken;
+exports.deleteCookie = deleteCookie;

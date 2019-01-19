@@ -1,7 +1,8 @@
 /** Imports */
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect, Switch, withRouter   } from "react-router-dom"
-import { getToken } from '../redux/actions/ACT_auth';
+// import { getToken, validateAuth } from '../redux/actions/ACT_auth';
+import { AuthValACTIONS } from '../redux/events/auth_validation';
 import { connect } from 'react-redux';
 import Store from '../Store';
 
@@ -26,7 +27,7 @@ class AppComponent extends Component {
 
     /**Lifecycle hooks ----------------*/
     componentWillMount(){
-        Store.dispatch(getToken());
+        Store.dispatch(AuthValACTIONS.validateAuth());
     }
 
 
@@ -46,7 +47,8 @@ class AppComponent extends Component {
                         }}/>
                         <Route path= "/signup-student" render={(data) => {
                             return <PublicHome match = {data.match} 
-                            isAuthenticated = {this.props.isAuthenticated}/>
+                            isAuthenticated = {
+                                this.props.isAuthenticated}/>
                         }}/>
                         <Route render={() => {
                             return <Redirect to ="/auth"/>
@@ -62,22 +64,21 @@ class AppComponent extends Component {
         );
     }
 
-
-
     /**------------------------------------------------- */
     render(){
-        return(this.props.DATA_READY ? this._renderRouterComp(): <PageLoader />);
+        return(this.props.DATA_ON_LOADING ? <PageLoader /> : this._renderRouterComp());
     }
 }
 
 
-/** connection data to this component */
+
 const connectState = function(state) {
-    let authReducer = state.authReducer;
+    let AuthStateRed = state.AuthStatesReducer;
     return {
-        DATA_READY : state.uiAuth.DATA_READY,
-        isAuthenticated : authReducer.isAuthenticated,
-        token : authReducer.token
+        DATA_ON_LOADING : AuthStateRed.DATA_ON_LOADING,
+        isAuthenticated : AuthStateRed.isAuthenticated,
+        token : AuthStateRed.token,
+        error : AuthStateRed.error
     }
 }
 export default connect(connectState)(AppComponent);
