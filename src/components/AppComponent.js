@@ -1,3 +1,11 @@
+/** ---------------------------------------------------------------------------------------+
+Name : AppComponent
+Author by : Napihups
+Date of revision : 19-01-2019
+Desc : This Components is the main components for all modules of the Application
+which include the Public and User (Private) modules
++-----------------------------------------------------------------------------------------**/
+
 /** Imports */
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect, Switch, withRouter   } from "react-router-dom"
@@ -9,14 +17,6 @@ import Store from '../Store';
 /** Components required ----------------------------------*/
 import PublicHome from './PublicModules/PublicHome';
 import PageLoader from './PageLoader';
-
-/** ---------------------------------------------------------------------------------------+
-Name : AppComponent
-Author by : Napihups
-Date of revision : 05-01-2019
-Desc : This Components is the main components for all modules of the Application
-which include the Public and User (Private) modules
-+-----------------------------------------------------------------------------------------**/
 class AppComponent extends Component {
 
     /** Constructor INIT */
