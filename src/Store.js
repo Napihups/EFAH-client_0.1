@@ -14,6 +14,8 @@ import { AuthValidationMW } from './redux/events/auth_validation';
 import { SigninMW } from './redux/events/login';
 import { APIMW } from './redux/events/apis';
 import {RouteHistoryMW } from './redux/events/routes_event';
+import { SignoutMW } from './redux/events/logout';
+import { UserMW } from './redux/events/user.events';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -24,7 +26,9 @@ const store = createStore(
       applyMiddleware(...APIMW,
         ...AuthValidationMW,
         ...SigninMW,
-        ...RouteHistoryMW),
+        ...RouteHistoryMW,
+        ...SignoutMW,
+        ...UserMW),
     )
   );
 

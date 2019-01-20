@@ -55,7 +55,7 @@ const signinMiddleware = ({dispatch}) => next => action => {
             let token = action.payload;
             AuthUtils.saveTokenToCookie(token);
             dispatch(AuthValACTIONS.validateAuth());
-        }
+        }break;
     }
 }
 

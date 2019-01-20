@@ -16,12 +16,13 @@ import {PUSH_ROUTE} from '../events/routes_event';
 
     switch(action.type) {
         case PUSH_ROUTE : {
+
             return {
                 current : action.url,
                 previous : state.previous,
                 toNext : true
             }
-        }
+        }break;
     }
 
  }

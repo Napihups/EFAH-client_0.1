@@ -13,9 +13,10 @@ function getCookieToken() {
 }
 
 function deleteCookie(name) {
-    document.cookie = 
-    [name, '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', 
-    window.location.host.toString()].join('');
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    // document.cookie = 
+    // [name, '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', 
+    // window.location.host.toString()].join('');
 }
 
 

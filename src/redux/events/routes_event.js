@@ -30,12 +30,9 @@ const routeHistoryMiddleware = ({dispatch}) => next => action => {
     next(action);
     switch(action.type) {
         case PUSH_ROUTE : {
-
             const { history, url } = action.payload;
             history.push(url);
-            dispatch(toNextLocation())
-
-        }
+        } break;
     }
 }
 

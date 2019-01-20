@@ -29,7 +29,12 @@ const api = ({dispatch}) => next => action => {
         const { method, url, onSuccess, onError} = action.meta;
 
         if(method === 'GET'){
-            HTTP.get(url, {headers : createHeader()})
+           
+            let params = action.payload === null ? {} : action.payload;
+            HTTP.get(url, {
+                headers : createHeader(),
+                params : params
+            })
             .then((resp) =>{
                 let data = resp.data;
                     if(data.success){
@@ -39,12 +44,17 @@ const api = ({dispatch}) => next => action => {
                     }
                 } 
             )
-            .catch((err) =>  dispatch(onError(err)))
+            .catch((err) => {
+                console.log(err);
+                dispatch(onError(err))
+            } )
         } 
         else if(method === 'POST'){
 
-            let data = action.payload;
-            HTTP.post(url, {data} , {headers : createHeader()} )
+            let rPayload = action.payload;
+            let headers = createHeader();
+            console.log(url);
+            HTTP.post(url, {rPayload} , {headers : headers} )
             .then((resp) => {
                
                 let data = resp.data;
@@ -55,6 +65,7 @@ const api = ({dispatch}) => next => action => {
                 }
             })
             .catch((err) => {
+                console.error(err);
                 dispatch(onError(err))
             })
         }
