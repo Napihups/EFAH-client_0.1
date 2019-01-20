@@ -106,6 +106,7 @@ class MainNavbar extends Component {
 
      /**Lifecycle hooks ----------------*/
     componentWillMount() {
+        console.log("MainNavbar : componentWillMount")
 
     }
 
@@ -126,7 +127,7 @@ class MainNavbar extends Component {
         let notifList = [];
         var i;
         for (i = 0; i < 3; i++) {
-            notifList.push(<NotifItem />)
+        notifList.push(<NotifItem  key={i}/>)
         }
         return notifList;
      }
@@ -179,6 +180,8 @@ class MainNavbar extends Component {
 
 }
 
+
+
 const NotifItem = (...props) => {
 
     return (
@@ -230,7 +233,7 @@ class LeftSideNav extends Component {
                     <LeftSideBarToggleButton />
                     <ul className="px-nav-content">
                     <div className="px-nav-box p-y-2 p-x-3 border-b-2 border-grey-light">
-                        <ProfileInfoBox avatarUrl = {''} />
+                        <ProfileInfoBox avatarUrl = {this.props.avatarUrl} />
                         <ProfileControlPanel />         
                     </div>
                     <li className="px-nav-item active">
@@ -252,6 +255,9 @@ class LeftSideNav extends Component {
 
 }
 
+
+
+/**-------------------------------------------------------------------------------------------- */
 
 const LeftSideBarToggleButton = () => {
     return (

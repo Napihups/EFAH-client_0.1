@@ -50,8 +50,7 @@ const userMiddleware = ({dispatch}) => next => action => {
         }break;
         case FETCH_USER_SUCCESS : {
             // if user fetch success
-            let user = action.payload;
-            console.log(user);
+            // let user = action.payload;
         }break;
         case FETCH_USER_FAILED : {
             // if failed to fetch user 
