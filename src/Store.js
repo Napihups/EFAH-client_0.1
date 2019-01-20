@@ -13,6 +13,7 @@ import AppReducers from './redux/appreducers/main.reducers';
 import { AuthValidationMW } from './redux/events/auth_validation';
 import { SigninMW } from './redux/events/login';
 import { APIMW } from './redux/events/apis';
+import {RouteHistoryMW } from './redux/events/routes_event';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -20,7 +21,10 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     AppReducers,
     composeEnhancers(
-      applyMiddleware(...APIMW,...AuthValidationMW, ...SigninMW),
+      applyMiddleware(...APIMW,
+        ...AuthValidationMW,
+        ...SigninMW,
+        ...RouteHistoryMW),
     )
   );
 

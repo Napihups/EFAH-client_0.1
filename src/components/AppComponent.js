@@ -8,8 +8,7 @@ which include the Public and User (Private) modules
 
 /** Imports */
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect, Switch, withRouter   } from "react-router-dom"
-// import { getToken, validateAuth } from '../redux/actions/ACT_auth';
+import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-router-dom"
 import { AuthValACTIONS } from '../redux/events/auth_validation';
 import { connect } from 'react-redux';
 import Store from '../Store';
@@ -17,6 +16,7 @@ import Store from '../Store';
 /** Components required ----------------------------------*/
 import PublicHome from './PublicModules/PublicHome';
 import PageLoader from './PageLoader';
+import Home from './UserModules/Home.component';
 class AppComponent extends Component {
 
     /** Constructor INIT */
@@ -24,10 +24,13 @@ class AppComponent extends Component {
         super(props);
     }
 
-
     /**Lifecycle hooks ----------------*/
     componentWillMount(){
         Store.dispatch(AuthValACTIONS.validateAuth());
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+      
     }
 
 
@@ -38,20 +41,26 @@ class AppComponent extends Component {
                 <React.Fragment>
                     <Switch>
                         <Route exact path = "/auth" render={(data) => {
-                            return <PublicHome match = {data.match}     
+                            return <PublicHome route = {data}     
                             isAuthenticated = {this.props.isAuthenticated}/>
                         }} />
                         <Route path= "/signup-teacher" render={(data) => {
-                            return <PublicHome match = {data.match} 
+                            return <PublicHome route = {data} 
                             isAuthenticated = {this.props.isAuthenticated}/>
                         }}/>
                         <Route path= "/signup-student" render={(data) => {
-                            return <PublicHome match = {data.match} 
+                            return <PublicHome route = {data} 
                             isAuthenticated = {
                                 this.props.isAuthenticated}/>
                         }}/>
+                        <Route path= "/home" render={(data) => {
+                            return <Home route = {data} 
+                            isAuthenticated = {this.props.isAuthenticated}/>
+                        }}/>
                         <Route render={() => {
-                            return <Redirect to ="/auth"/>
+                            return(
+                                 <h1>Unknown URLS =( Sorry !!!</h1>
+                            )
                         }}/>
                     </Switch>
 
@@ -81,4 +90,5 @@ const connectState = function(state) {
         error : AuthStateRed.error
     }
 }
+
 export default connect(connectState)(AppComponent);

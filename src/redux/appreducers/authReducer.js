@@ -1,5 +1,4 @@
 /**
- * REDUCER - USER EVENTS 
  * Name : Auth
  * Author by : Napihup
  ----------------------------------------------------------------*/

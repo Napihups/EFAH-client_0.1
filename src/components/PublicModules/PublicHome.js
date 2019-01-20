@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Redirect, Link } from "react-router-dom";
 import Store from '../../Store';
 import { signinUser } from '../../redux/events/login';
+import { pushRoute } from '../../redux/events/routes_event';
 
 /** styling required */
 import '../../css/bootstrap.css'; // version 3
@@ -12,6 +13,7 @@ import '../../css/app-style.css';
 import '../../../node_modules/tailwindcss/dist/tailwind.min.css';
 import './css/PublicHome.css';
 import '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+import store from '../../Store';
 
 
 
@@ -33,6 +35,30 @@ export default class PublicHome extends Component {
     }
 
 
+    /** life cycles hook ------------------------------*/
+    componentWillMount() {
+        /** Upon Page Refreshed */
+        console.log("PublicHome : componentWillMount")
+        let history = this.props.route.history;
+        if(this.props.isAuthenticated) {
+            Store.dispatch(pushRoute(history, '/home'));
+        }
+    }
+
+    componentWillReceiveProps(props) {
+        console.log("PublicHome : componentWillReceiveProps")
+    }
+
+
+    componentWillUpdate(nextProps) {
+        /** Runtime Component Update */
+        console.log("PublicHome : componentWillUpdate")
+        let history = nextProps.route.history;
+        Store.dispatch(pushRoute(history, '/home'));
+    }
+
+
+
     /** Functions  ---------------------------------------------------*/
     _renderDisplay = () => {
         return(
@@ -42,7 +68,8 @@ export default class PublicHome extends Component {
         );
     }
     _handleFormToDisplay = () => {
-        switch(this.props.match.path){        
+        var route = this.props.route;
+        switch(route.match.path){        
             case '/auth' : return <SigninForm />
             case '/signup-student': return <SignupForm accType = 'STUDENT'/>
             case '/signup-teacher': return <SignupForm accType = 'TEACHER'/>
@@ -50,7 +77,11 @@ export default class PublicHome extends Component {
     }
 
     render(){     
-        return(this.props.isAuthenticated ? <Redirect to = "/user/" /> : this._renderDisplay());
+        return(
+            <div className="flex img-page w-full h-screen">
+                {this._handleFormToDisplay()}
+            </div>
+        );
     }
 }
 
@@ -98,7 +129,7 @@ class SigninForm extends Component {
     }
 
     _validateSigninForm = () => {
-        console.log("form is validating ");
+        // console.log("form is validating ");
     }
 
     render(){
